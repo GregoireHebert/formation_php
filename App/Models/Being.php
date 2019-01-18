@@ -6,5 +6,5 @@ namespace App\Models;
 
 interface Being
 {
-
+    public function move(): string;
 }
