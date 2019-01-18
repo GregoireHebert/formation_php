@@ -10,6 +10,7 @@ class Alice extends Person
 {
     public function move(): string
     {
+        $this->addStep();
         return 'Walk on her boots';
     }
 }

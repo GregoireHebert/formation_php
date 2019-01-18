@@ -7,4 +7,6 @@ namespace App\Models;
 interface Being
 {
     public function move(): string;
+    public static function getGlobalSteps(): int;
+    public function getSelfSteps(): int;
 }

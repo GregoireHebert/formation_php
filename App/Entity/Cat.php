@@ -10,6 +10,7 @@ class Cat extends Animal
 {
     public function move(): string
     {
+        $this->addStep();
         return 'move on it\'s paws lightly';
     }
 }

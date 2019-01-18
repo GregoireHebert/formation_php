@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-abstract class Person implements Being
+use App\Traits\Steps;
+
+abstract class Person extends AbstractBeing
 {
-    abstract public function move(): string;
+    use Steps;
 }
