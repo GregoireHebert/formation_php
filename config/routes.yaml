@@ -1,0 +1,8 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+chuck:
+    path: /chuck
+    controller: App\Controller\Chuck
+    methods: ['GET']
