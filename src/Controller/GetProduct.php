@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Repository\ProductRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,8 +23,10 @@ class GetProduct
         dump($productId);
 
         $manager = $registry->getEntityManagerForClass(Product::class);
+        /** @var ProductRepository $repository */
         $repository = $manager->getRepository(Product::class);
-        $product = $repository->find($productId);
+        $product = $repository->findEasyBreath($productId);
+
 
         if (!$product instanceof Product) {
             throw new NotFoundHttpException();

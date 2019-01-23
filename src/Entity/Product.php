@@ -8,9 +8,10 @@ use App\Constraints\StartWithEasy;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\ProductRepository;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=ProductRepository::class)
  */
 class Product
 {
