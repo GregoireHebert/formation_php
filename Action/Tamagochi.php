@@ -20,8 +20,15 @@ class Tamagochi
         $this->bus = $bus;
     }
 
-    public function playTurn(string $action): Mouton
+    public function playTurn(/*string $action*/): Mouton
     {
+        if (func_num_args()) {
+            @trigger_error('Depreacted usage of playTurn in version 3 don\'t use $action but inject Request instead.');
+            $action = func_get_args(0);
+        } else {
+            $this->request->get('action');
+        }
+
         $mouton = $this->getMouton();
 
         $command = new LifeCommand($mouton, $action);

@@ -48,7 +48,6 @@ class MoutonRepository implements Repository
     public function update($object): void
     {
         $preparation = $this->pdo->prepare('UPDATE Mouton SET hunger = :hunger, sleepiness = :sleepiness, playfulness = :playfulness, life = :life WHERE id = :id');
-        var_dump($object);
         $preparation->execute([
             ':life' => $object->getLife(),
             ':hunger' => $object->getHunger(),
