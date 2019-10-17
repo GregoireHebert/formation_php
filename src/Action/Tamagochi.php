@@ -8,27 +8,26 @@ use App\Bus\Bus;
 use App\Commands\LifeCommand;
 use App\Entity\Mouton;
 use App\Repository\Repository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Twig\Environment;
 
 class Tamagochi
 {
     private $bus;
     private $repository;
+    private $twig;
 
-    public function __construct(Bus $bus, Repository $repository)
+    public function __construct(Bus $bus, Repository $repository, Environment $twig)
     {
         $this->repository = $repository;
         $this->bus = $bus;
+        $this->twig = $twig;
     }
 
-    public function playTurn(/*string $action*/): Mouton
+    public function playTurn(Request $request): Response
     {
-        if (func_num_args()) {
-            @trigger_error('Depreacted usage of playTurn in version 3 don\'t use $action but inject Request instead.');
-            $action = func_get_args(0);
-        } else {
-            $this->request->get('action');
-        }
-
+        $action = $request->request->get('action', '');
         $mouton = $this->getMouton();
 
         $command = new LifeCommand($mouton, $action);
@@ -39,7 +38,9 @@ class Tamagochi
             unset($_SESSION['id']);
         }
 
-        return $mouton;
+        return new Response($this->twig->render('index.html', [
+            'mouton' => $mouton,
+        ]));
     }
 
     private function getMouton()

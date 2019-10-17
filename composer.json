@@ -1,0 +1,21 @@
+{
+    "name": "gheb/tamagotchi",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Grégoire Hébert",
+            "email": "gregoire@les-tilleuls.coop"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/http-foundation": "^5.0@dev",
+        "twig/twig": "3.x-dev",
+        "symfony/routing": "^5.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
