@@ -40,6 +40,7 @@ class Tamagochi
         if (!isset($_SESSION['id'])) {
             $this->repository->insert($mouton = new Mouton());
             $_SESSION['id'] = $mouton->getId();
+
             return $mouton;
         }
 

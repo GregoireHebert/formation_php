@@ -26,7 +26,7 @@ class MoutonRepository implements Repository
             ':life' => $object->getLife(),
             ':hunger' => $object->getHunger(),
             ':sleepiness' => $object->getSleepiness(),
-            ':playfulness' => $object->getPlayfulness()
+            ':playfulness' => $object->getPlayfulness(),
         ]);
 
         $object->setId($this->pdo->lastInsertId());
@@ -34,11 +34,11 @@ class MoutonRepository implements Repository
 
     /**
      * @param Mouton $object
-     * @return bool
      */
     public function delete($object): bool
     {
         $preparation = $this->pdo->prepare('DELETE FROM Mouton WHERE id = :id');
+
         return $preparation->execute([':id' => $object->getId()]);
     }
 
@@ -54,15 +54,15 @@ class MoutonRepository implements Repository
             ':hunger' => $object->getHunger(),
             ':sleepiness' => $object->getSleepiness(),
             ':playfulness' => $object->getPlayfulness(),
-            ':id' => $object->getId()
+            ':id' => $object->getId(),
         ]);
-
     }
 
     public function findOne($id): Mouton
     {
         $preparation = $this->pdo->prepare('SELECT * FROM Mouton WHERE id = :id');
         $preparation->execute([':id' => $id]);
+
         return $preparation->fetchObject(Mouton::class);
     }
 }

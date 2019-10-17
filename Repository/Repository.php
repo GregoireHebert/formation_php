@@ -8,7 +8,7 @@ interface Repository
 {
     public function insert($object);
 
-    public function delete($object): bool ;
+    public function delete($object): bool;
 
     public function update($object);
 

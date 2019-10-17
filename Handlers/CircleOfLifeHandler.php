@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Handlers;
 
 use App\Commands\LifeCommand;
-use App\Entity\Mouton;
 
 class CircleOfLifeHandler implements HandlerInterface
 {
@@ -25,15 +24,15 @@ class CircleOfLifeHandler implements HandlerInterface
         $life = $mouton->getLife();
 
         if ($mouton->getHunger() > 7) {
-            $life --;
+            --$life;
         }
 
         if ($mouton->getSleepiness() > 7) {
-            $life --;
+            --$life;
         }
 
         if ($mouton->getPlayfulness() > 7) {
-            $life --;
+            --$life;
         }
 
         $mouton->setLife($life);

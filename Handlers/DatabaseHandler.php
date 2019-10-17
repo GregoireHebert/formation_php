@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Handlers;
 
 use App\Commands\LifeCommand;
-use App\Entity\Mouton;
 use App\Repository\MoutonRepository;
 
 class DatabaseHandler implements HandlerInterface
@@ -17,6 +16,7 @@ class DatabaseHandler implements HandlerInterface
     {
         $this->repository = $repository;
     }
+
     /**
      * @param LifeCommand $command
      */

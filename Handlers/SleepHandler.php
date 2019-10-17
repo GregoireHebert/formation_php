@@ -24,6 +24,6 @@ class SleepHandler implements HandlerInterface
 
     public function support($command): bool
     {
-        return ($command instanceof LifeCommand && $command->getAction() === self::ACTION);
+        return $command instanceof LifeCommand && self::ACTION === $command->getAction();
     }
 }

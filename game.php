@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use App\Action\Tamagochi;
@@ -25,7 +27,7 @@ $bus->setHandlers([
     new DoctorHandler(),
     new EatHandler(),
     new RunHandler(),
-    new SleepHandler()
+    new SleepHandler(),
 ]);
 
 $controller = new Tamagochi($bus, $repository);

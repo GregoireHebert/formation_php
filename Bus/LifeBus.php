@@ -11,7 +11,7 @@ class LifeBus implements Bus
 {
     private $handlers = [];
 
-    public function addHandler(HandlerInterface $handler)
+    public function addHandler(HandlerInterface $handler): void
     {
         $this->handlers[] = $handler;
     }
@@ -19,9 +19,9 @@ class LifeBus implements Bus
     /**
      * @param LifeCommand $command
      */
-    public function execute($command)
+    public function execute($command): void
     {
-        /**
+        /*
          * @var HandlerInterface $handler
          */
         usort($this->handlers, function (HandlerInterface $a, HandlerInterface $b) {
@@ -35,7 +35,7 @@ class LifeBus implements Bus
         }
     }
 
-    public function setHandlers(array $handlers)
+    public function setHandlers(array $handlers): void
     {
         $this->handlers = $handlers;
     }

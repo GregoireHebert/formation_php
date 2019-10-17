@@ -17,17 +17,11 @@ class LifeCommand
         $this->action = $action;
     }
 
-    /**
-     * @return Mouton
-     */
     public function getMouton(): Mouton
     {
         return $this->mouton;
     }
 
-    /**
-     * @return string
-     */
     public function getAction(): string
     {
         return $this->action;
